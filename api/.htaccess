@@ -1,0 +1,9 @@
+<IfModule mod_headers.c>
+    # Autoriser les requêtes CORS depuis des origines spécifiques
+    SetEnvIf Origin "^http(s)?://(localhost|todolist):3003$" AccessControlAllowOrigin=$0
+    Header always set Access-Control-Allow-Origin "%{AccessControlAllowOrigin}e" env=AccessControlAllowOrigin
+    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS, DELETE, PUT"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+    Header always set Access-Control-Allow-Credentials "true"
+</IfModule>
+
